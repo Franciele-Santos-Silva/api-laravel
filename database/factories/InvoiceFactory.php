@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +22,7 @@ class InvoiceFactory extends Factory
             'user_id' => User::all()->random()->id,
             'type' => $this->faker->randomElement(array:['B','C','P']),
             'paid' => $paid,
-            'value' => $$this->faker->numerBetween(int1:1000, int2:10000),
+            'value' => $this->faker->numberBetween(int1:1000, int2:10000),
             'payment_date' => $paid ? $this->faker->randomElement(array: [$this->faker->dateTimeThisMonth()]) : null
         ];
     }
